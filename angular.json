@@ -1,0 +1,125 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "FinalProject": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/final-project",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/HomeDesign/css/linearicons.css",
+              "src/assets/HomeDesign/css/font-awesome.min.css",
+              "src/assets/HomeDesign/css/bootstrap.css",
+              "src/assets/HomeDesign/css/magnific-popup.css",
+              "src/assets/HomeDesign/css/nice-select.css",
+              "src/assets/HomeDesign/css/animate.min.css",
+              "src/assets/HomeDesign/css/main.css",
+              "src/assets/HomeDesign/css/jquery-ui.css",
+              "src/assets/HomeDesign/css/owl.carousel.css"
+            ],
+            "scripts": [
+              "src/assets/HomeDesign/js/vendor/jquery-2.2.4.min.js",
+              "src/assets/HomeDesign/js/popper.min.js",
+              "src/assets/HomeDesign/js/vendor/bootstrap.min.js",
+              "src/assets/HomeDesign/js/jquery-ui.js",
+              "src/assets/HomeDesign/js/easing.min.js",
+              "src/assets/HomeDesign/js/hoverIntent.js",
+              "src/assets/HomeDesign/js/superfish.min.js",
+              "src/assets/HomeDesign/js/jquery.ajaxchimp.min.js",
+              "src/assets/HomeDesign/js/jquery.magnific-popup.min.js",
+              "src/assets/HomeDesign/js/jquery.nice-select.min.js",
+              "src/assets/HomeDesign/js/owl.carousel.min.js",
+              "src/assets/HomeDesign/js/mail-script.js",
+              "src/assets/HomeDesign/js/main.js"
+
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "FinalProject:build:production"
+            },
+            "development": {
+              "browserTarget": "FinalProject:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "FinalProject:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}
