@@ -1,0 +1,30 @@
+
+
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+   <div class="main-panel" style="padding: 50px;">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>testimonial Text</th>
+            <th>status</th>
+            <th>created At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ApprovedTestimonialsForAdmindash of admin.ApprovedTestimonialsForAdmindash">
+            <td>{{ ApprovedTestimonialsForAdmindash.userId}}</td>
+            <td>{{ ApprovedTestimonialsForAdmindash.firstName}}</td>
+            <td>{{ ApprovedTestimonialsForAdmindash.lastName}}</td>
+            <td>{{ ApprovedTestimonialsForAdmindash.testimonialText}}</td>
+            <td>{{ ApprovedTestimonialsForAdmindash.status}}</td>
+            <td>{{ ApprovedTestimonialsForAdmindash.createdAt | date: 'yyyy-MM-dd' }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+</div>

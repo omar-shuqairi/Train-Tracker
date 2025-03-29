@@ -1,0 +1,47 @@
+body {
+    overflow-x: hidden;
+}
+.contact-section {
+    padding: 50px 0;
+}
+.contact-box {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .contact-box {
+        margin-bottom: 20px;
+    }
+}
+
+h4 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.title-shadow {
+    text-align: center;
+    padding: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10%;
+}
+
+/* Form Styling */
+.contact-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+.btn-submit:hover {
+    background-color: #0056b3;
+}

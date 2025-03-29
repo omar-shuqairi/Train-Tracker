@@ -1,3 +1,36 @@
-<p>login works!</p>
-<input type="text" value="">
-<button (click)="save()">hello</button>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow" style="width: 400px;">
+      <h2 class="text-center mb-4">Login</h2>
+  
+      <form>
+        <!-- Email Field -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" type="email" class="form-control" [formControl]="email" placeholder="Enter your email">
+          <div *ngIf="email.invalid && email.touched" class="text-danger">
+            <small *ngIf="email.errors?.['required']">Email is required</small>
+            <small *ngIf="email.errors?.['email']">Enter a valid email</small>
+          </div>
+        </div>
+  
+        <!-- Password Field -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input id="password" type="password" class="form-control" [formControl]="password" placeholder="Enter your password">
+          <div *ngIf="password.invalid && password.touched" class="text-danger">
+            <small *ngIf="password.errors?.['required']">Password is required</small>
+            <small *ngIf="password.errors?.['minlength']">Password must be at least 8 characters</small>
+          </div>
+        </div>
+  
+        <!-- Login Button -->
+        <button type="button" class="btn btn-primary w-100" [disabled]="email.invalid || password.invalid" (click)="login()" >
+          Login
+        </button>
+
+        <div style="margin-top: 15px;"><a  (click)="GoToRegister()" style="cursor: pointer; color: #6e8efb;">You don't have account ! , Register Now</a></div>
+      </form>
+    </div>
+  </div>
+  
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

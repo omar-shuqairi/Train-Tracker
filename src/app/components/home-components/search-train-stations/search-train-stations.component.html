@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <!-- Search Bar -->
+      <div class="col-md-6">
+        <div class="input-group">
+          <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            placeholder="Search for a station..."
+            class="form-control search-input"
+            (keyup)="onSearchChange()"
+          />
+        </div>
+      </div>
+    </div>
+  
+    <!-- Display Station Results -->
+    <div *ngIf="stations.length > 0" class="mt-4">
+      <h3 class="text-center mb-4">Stations List</h3>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let station of stations">
+          <div class="card station-card">
+            <div class="card-body">
+              <h5 class="card-title">{{ station.stationName }}</h5>
+              <p><strong>City:</strong> {{ station.city }}</p>
+              <p><strong>Area:</strong> {{ station.area }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Message if no stations are found -->
+    <p *ngIf="stations.length === 0 && searchQuery.length > 0" class="text-center text-danger mt-3">
+      No stations found for "{{ searchQuery }}".
+    </p>
+  </div>
+  

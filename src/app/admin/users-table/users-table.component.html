@@ -1,0 +1,36 @@
+
+
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+   <div class="main-panel" style="padding: 50px;">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Date Of Birth</th>
+            <th>Profile Img</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Users of admin.Users">
+            <td>{{ Users.user_ID }}</td>
+            <td>{{ Users.email }}</td>
+            <td>{{ Users.first_Name }}</td>
+            <td>{{ Users.last_Name }}</td>
+            <td>{{ Users.gender }}</td>
+            <td>{{ Users.date_Of_Birth | date: 'yyyy-MM-dd' }}</td>
+            <td>
+              <img src="../../../assets/images/{{Users.profile_Image}}" class="img-thumbnail" style="width: 50px; height: 50px;">
+            </td>
+            
+            <td>{{ Users.city }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>

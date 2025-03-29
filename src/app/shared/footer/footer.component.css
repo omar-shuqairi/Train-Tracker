@@ -1,0 +1,55 @@
+    /* Footer Background */
+    .bg-custom {
+        background-color: #2c3e50; /* Dark blue-gray for a professional, sleek look */
+    }
+
+    /* Footer Text Styling */
+    .text-light {
+        color: #ecf0f1; /* Light text color for better readability */
+    }
+
+    .text-uppercase {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    /* Styling for footer sections */
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    /* Hover effect for Quick Links */
+    .list-unstyled a {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .list-unstyled a:hover {
+        color: #f39c12; /* Bright yellow/orange on hover for a train-like feel */
+    }
+
+    /* Footer Bottom Section */
+    .footer-bottom {
+        background-color: #34495e;
+        padding: 20px 0;
+        color: #ecf0f1;
+    }
+
+    .footer-bottom p {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+        .bg-custom {
+            padding: 20px 0;
+        }
+        .text-uppercase {
+            font-size: 1.1rem;
+        }
+        .footer-section p {
+            font-size: 0.9rem;
+        }
+    }

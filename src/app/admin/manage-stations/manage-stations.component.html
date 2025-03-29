@@ -1,0 +1,101 @@
+ <div class="wrapper">
+     <app-sidebar></app-sidebar>
+    <div class="main-panel" style="padding: 50px;">
+
+
+      <button  class="btn btn-primary mb-3" (click)="OpenCreateDialog()">Create Station</button>
+
+      <div class="table-responsive mt-3">
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Station ID</th>
+              <th>Station Name</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
+              <th>City</th>
+              <th>Area</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Station of admin.Station">
+              <td>{{ Station.stationId }}</td>
+              <td>{{ Station.stationName }}</td>
+              <td>{{ Station.latitude }}</td>
+              <td>{{ Station.longitude }}</td>
+              <td>{{ Station.city }}</td>
+              <td>{{ Station.area }}</td>
+              <td>
+                <button  class="btn btn-sm btn-warning" (click)="openUpdateDialog(Station)">
+                  Update
+                </button>
+                <button  class="btn btn-sm btn-danger" (click)="openDialog(Station.stationId)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+
+
+
+    <ng-template #CallDeleteDialog>
+        <h1 mat-dialog-title>Delete train</h1>
+        <div mat-dialog-content>Are you sure you want to delete this item?</div>
+        <div mat-dialog-actions>
+          <button mat-button mat-dialog-close="yes">Yes</button>
+          <button mat-button mat-dialog-close="no">No</button>
+        </div>
+    </ng-template> 
+
+
+
+
+    <ng-template #CallUpdateDialog>
+        <h2 mat-dialog-title>Update Station</h2>
+        <mat-dialog-content class="mat-typography">
+            <form class="example-form" [formGroup]="UpdateForm">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Station Name</mat-label>
+                  <input matInput type="text" formControlName="stationName" [(ngModel)]="PData.stationName">
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width">
+                  <mat-label>Latitude</mat-label>
+                  <input matInput type="number" formControlName="latitude" [(ngModel)]="PData.latitude">
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width">
+                  <mat-label>Longitude</mat-label>
+                  <input matInput type="number" formControlName="longitude"  [(ngModel)]="PData.longitude">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>City</mat-label>
+                  <input matInput type="text" formControlName="city"  [(ngModel)]="PData.city">
+                </mat-form-field>
+
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Area</mat-label>
+                  <input matInput type="text" formControlName="area"  [(ngModel)]="PData.area">
+                </mat-form-field>
+              </form>
+              
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+          <button mat-button mat-dialog-close>Cancel</button>
+          <button mat-button (click)="Update()" [mat-dialog-close]="true" cdkFocusInitial>Update</button>
+        </mat-dialog-actions>
+        
+    </ng-template> 
+
+
+
+
+
+</div>
+</div>

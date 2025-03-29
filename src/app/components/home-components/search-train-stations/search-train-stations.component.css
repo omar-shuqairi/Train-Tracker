@@ -1,0 +1,57 @@
+/* Search Bar */
+.search-input {
+    border-radius: 25px;
+    padding: 12px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Search Button (icon) */
+  .input-group-text {
+    border-radius: 25px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .input-group-text i {
+    font-size: 1.2rem;
+  }
+  
+  /* Station Cards */
+  .station-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .station-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+  
+  /* Font and Spacing */
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #343a40;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .station-card {
+      margin-bottom: 15px;
+    }
+  }
+  

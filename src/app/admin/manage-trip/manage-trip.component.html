@@ -1,0 +1,112 @@
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+   <div class="main-panel" style="padding: 50px;">
+
+
+     <button  class="btn btn-primary mb-3" (click)="OpenCreateDialog()">Create Trip</button>
+
+     <div class="table-responsive mt-3">
+       <table class="table table-striped table-bordered table-hover">
+         <thead class="thead-dark">
+           <tr>
+             <th>Trip ID</th>
+             <th>Departure Time</th>
+             <th>Ticket Price</th>
+             <th>Trip Description</th>
+             <th>Train ID</th>
+             <th>Start Station ID</th>
+             <th>End Station ID</th>
+             <th>OP</th>
+
+
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let Trips of admin.Trips">
+             <td>{{ Trips.tripId }}</td>
+             <td>{{ Trips.departureTime | date: 'yyyy-MM-dd' }}</td>
+             <td>{{ Trips.ticketPrice }}</td>
+             <td>{{ Trips.tripDescription }}</td>
+             <td>{{ Trips.trainId }}</td>
+             <td>{{ Trips.startStationId }}</td>
+             <td>{{ Trips.endStationId }}</td>
+
+
+             <td>
+               <button  class="btn btn-sm btn-warning" (click)="openUpdateDialog(Trips)">
+                 Update
+               </button>
+               <button  class="btn btn-sm btn-danger" (click)="openDialog(Trips.tripId)">
+                 Delete
+               </button>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+     
+
+
+
+   <ng-template #CallDeleteDialog>
+       <h1 mat-dialog-title>Delete Trip</h1>
+       <div mat-dialog-content>Are you sure you want to delete this item?</div>
+       <div mat-dialog-actions>
+         <button mat-button mat-dialog-close="yes">Yes</button>
+         <button mat-button mat-dialog-close="no">No</button>
+       </div>
+   </ng-template> 
+
+
+
+
+   <ng-template #CallUpdateDialog>
+       <h2 mat-dialog-title>Update Station</h2>
+       <mat-dialog-content class="mat-typography">
+           <form class="example-form" [formGroup]="UpdateForm">
+               <mat-form-field class="example-full-width">
+                 <mat-label>departure Time</mat-label>
+                 <input matInput type="date" formControlName="departureTime" [(ngModel)]="PData.departureTime">
+               </mat-form-field>
+             
+               <mat-form-field class="example-full-width">
+                 <mat-label>ticket Price</mat-label>
+                 <input matInput type="number" formControlName="ticketPrice" [(ngModel)]="PData.ticketPrice">
+               </mat-form-field>
+             
+               <mat-form-field class="example-full-width">
+                 <mat-label>tripDescription</mat-label>
+                 <input matInput type="text" formControlName="tripDescription"  [(ngModel)]="PData.tripDescription">
+               </mat-form-field>
+
+               <mat-form-field class="example-full-width">
+                <mat-label>trainId</mat-label>
+                <input matInput type="number" formControlName="trainId"  [(ngModel)]="PData.trainId">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>start Station Id</mat-label>
+                <input matInput type="number" formControlName="startStationId"  [(ngModel)]="PData.startStationId">
+              </mat-form-field>
+
+
+              <mat-form-field class="example-full-width">
+                <mat-label>end Station Id</mat-label>
+                <input matInput type="number" formControlName="endStationId"  [(ngModel)]="PData.endStationId">
+              </mat-form-field>
+             </form>
+             
+       </mat-dialog-content>
+       <mat-dialog-actions align="end">
+         <button mat-button mat-dialog-close>Cancel</button>
+         <button mat-button (click)="Update()" [mat-dialog-close]="true" cdkFocusInitial>Update</button>
+       </mat-dialog-actions>
+       
+   </ng-template> 
+
+
+
+
+
+</div>
+</div>

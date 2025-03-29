@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>Create New Trip</h2>
+<mat-dialog-content class="mat-typography">
+    <form class="example-form" [formGroup]="createForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>departure Time</mat-label>
+          <input matInput type="date" formControlName="departureTime">
+          <mat-error *ngIf="createForm.controls['departureTime'].hasError('required')">
+            departure Time is required
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>ticket Price</mat-label>
+          <input matInput type="number" formControlName="ticketPrice">
+          <mat-error *ngIf="createForm.controls['ticketPrice'].hasError('required')">
+            ticketPrice are required
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>trip Description</mat-label>
+          <input matInput type="text" formControlName="tripDescription">
+          <mat-error *ngIf="createForm.controls['tripDescription'].hasError('required')">
+            tripDescription is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>train Id</mat-label>
+            <input matInput type="number" formControlName="trainId">
+            <mat-error *ngIf="createForm.controls['trainId'].hasError('required')">
+              City is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>start Station Id</mat-label>
+            <input matInput type="number" formControlName="startStationId">
+            <mat-error *ngIf="createForm.controls['startStationId'].hasError('required')">
+                startStationId is required
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+            <mat-label>end Station Id</mat-label>
+            <input matInput type="number" formControlName="endStationId">
+            <mat-error *ngIf="createForm.controls['endStationId'].hasError('required')">
+                endStationId is required
+            </mat-error>
+          </mat-form-field>
+      </form>
+      
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="Create()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,20 @@
+<app-header></app-header>
+<h2 class="text-center mb-5 title-shadow">Our Clients says ...</h2>
+    <!-- Testimonial Section -->
+    <div class="testimonial-container">
+        <button class="carousel-arrow carousel-arrow-left" onclick="moveTestimonials('left')">&#8592;</button>
+        <div class="testimonial-wrapper">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card" *ngFor="let ApprovedTestimonialsForHome of Home.ApprovedTestimonialsForHome">
+                <img src="../../../assets/images/{{ApprovedTestimonialsForHome.profileImage}}" class="img-thumbnail" style="width: 50px; height: 50px;">
+                <div>
+                    <p>{{ ApprovedTestimonialsForHome.testimonialText}}</p>
+                    <p class="name">{{ ApprovedTestimonialsForHome.firstName}}</p>
+                    <p class="date">{{ ApprovedTestimonialsForHome.lastName}}</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-arrow carousel-arrow-right" >&#8594;</button>
+    </div>
+
+    <app-footer></app-footer>

@@ -1,0 +1,58 @@
+
+    /* Custom navbar background */
+    .bg-custom {
+        background-color: #e2e6fa !important; /* Soft light blue-gray */
+    }
+
+    /* Navbar text color */
+    .navbar-light .navbar-nav .nav-link {
+        color: #333333 !important; /* Dark gray */
+        transition: color 0.3s ease;
+    }
+
+    /* Active link color */
+    .navbar-light .navbar-nav .nav-link.active {
+        color: #4e73df !important; /* Medium blue for active link */
+    }
+
+    /* Hover effect for navbar links */
+    .navbar-light .navbar-nav .nav-link:hover {
+        color: #007bff !important; /* Bright blue on hover */
+        text-decoration: none;
+        transform: scale(1.1);
+    }
+
+    /* Toggler icon color */
+    .navbar-toggler-icon {
+        background-color: #4e73df; /* Medium blue for toggler icon */
+    }
+
+    /* Animations for smooth navbar color transitions */
+    .navbar-light .navbar-nav .nav-link {
+        animation: fadeIn 1s ease-out;
+    }
+
+    /* Fade-in animation for navbar links */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Navbar background transition for smooth hover effect */
+    .navbar-light .navbar-nav .nav-link:hover {
+        animation: scaleUp 0.3s ease-in-out;
+    }
+
+    @keyframes scaleUp {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+        }
+    }
+

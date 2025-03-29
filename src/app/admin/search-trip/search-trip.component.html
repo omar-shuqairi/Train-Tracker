@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+   <div class="main-panel" style="padding: 50px;">
+
+    <div class="container mt-5">
+        <div class="card">
+          <div class="card-header">
+            <h4>Search Trips</h4>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="searchTrips(startDate.value, endDate.value)">
+              <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="startDate">Start Date</label>
+                  <input type="date" id="startDate" #startDate class="form-control">
+                </div>
+                <div class="form-group col-md-5">
+                  <label for="endDate">End Date</label>
+                  <input type="date" id="endDate" #endDate class="form-control">
+                </div>
+                <div class="form-group col-md-2 d-flex align-items-end">
+                  <button type="submit" class="btn btn-primary btn-block">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="admin.TripsBetweenDates && admin.TripsBetweenDates.length > 0" class="mt-4">
+          <div class="card">
+            <div class="card-header">
+              <h4>Trips Results</h4>
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Trip ID</th>
+                    <th>Departure Time</th>
+                    <th>Ticket Price</th>
+                    <th>Description</th>
+                    <th>Train ID</th>
+                    <th>Start Station ID</th>
+                    <th>End Station ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let trip of admin.TripsBetweenDates">
+                    <td>{{ trip.tripId }}</td>
+                    <td>{{ trip.departureTime | date: 'yyyy-MM-dd'}}</td>
+                    <td>{{ trip.ticketPrice | currency }}</td>
+                    <td>{{ trip.tripDescription }}</td>
+                    <td>{{ trip.trainId }}</td>
+                    <td>{{ trip.startStationId }}</td>
+                    <td>{{ trip.endStationId }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="admin.TripsBetweenDates && admin.TripsBetweenDates.length === 0" class="alert alert-warning mt-4">
+          No trips found for the selected dates.
+        </div>
+      </div>
+</div>
+</div>
+
+
+
+
+
+
+

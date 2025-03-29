@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="main-panel" style="padding: 50px;">
+      <table class="table table-striped table-bordered table-hover" *ngIf="admin.GetPendingTestimonials.length > 0; else noData">
+          <thead class="thead-dark">
+              <tr>
+                  <th>User ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Testimonial Text</th>
+                  <th>Status</th>
+                  <th>Created At</th>
+                  <th>OP</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let GetPendingTestimonials of admin.GetPendingTestimonials">
+                  <td>{{ GetPendingTestimonials.userId }}</td>
+                  <td>{{ GetPendingTestimonials.firstName }}</td>
+                  <td>{{ GetPendingTestimonials.lastName }}</td>
+                  <td>{{ GetPendingTestimonials.testimonialText }}</td>
+                  <td>{{ GetPendingTestimonials.status }}</td>
+                  <td>{{ GetPendingTestimonials.createdAt | date: 'yyyy-MM-dd' }}</td>
+                  <td>
+                      <button class="btn btn-sm btn-success" (click)="admin.ApproveTheTestimonials(GetPendingTestimonials.testimonialId)">
+                          Approve
+                      </button>
+                      <button class="btn btn-sm btn-danger" (click)="admin.RejectTheTestimonials(GetPendingTestimonials.testimonialId)">
+                          Reject
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+
+      <!-- No Data Template -->
+      <ng-template #noData>
+          <div class="alert alert-warning text-center" role="alert">
+              No pending testimonials available.
+          </div>
+      </ng-template>
+  </div>
+</div>

@@ -26,30 +26,36 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/HomeDesign/css/linearicons.css",
-              "src/assets/HomeDesign/css/font-awesome.min.css",
-              "src/assets/HomeDesign/css/bootstrap.css",
-              "src/assets/HomeDesign/css/magnific-popup.css",
-              "src/assets/HomeDesign/css/nice-select.css",
-              "src/assets/HomeDesign/css/animate.min.css",
-              "src/assets/HomeDesign/css/main.css",
-              "src/assets/HomeDesign/css/jquery-ui.css",
-              "src/assets/HomeDesign/css/owl.carousel.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "src/assets/AdminDesign/css/bootstrap.min.css",
+              "src/assets/AdminDesign/css/plugins.min.css",
+              "src/assets/AdminDesign/css/kaiadmin.min.css",
+              "src/assets/AdminDesign/css/demo.css",
+              "src/assets/AdminDesign/css/fonts.min.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+              
+        
             ],
             "scripts": [
-              "src/assets/HomeDesign/js/vendor/jquery-2.2.4.min.js",
-              "src/assets/HomeDesign/js/popper.min.js",
-              "src/assets/HomeDesign/js/vendor/bootstrap.min.js",
-              "src/assets/HomeDesign/js/jquery-ui.js",
-              "src/assets/HomeDesign/js/easing.min.js",
-              "src/assets/HomeDesign/js/hoverIntent.js",
-              "src/assets/HomeDesign/js/superfish.min.js",
-              "src/assets/HomeDesign/js/jquery.ajaxchimp.min.js",
-              "src/assets/HomeDesign/js/jquery.magnific-popup.min.js",
-              "src/assets/HomeDesign/js/jquery.nice-select.min.js",
-              "src/assets/HomeDesign/js/owl.carousel.min.js",
-              "src/assets/HomeDesign/js/mail-script.js",
-              "src/assets/HomeDesign/js/main.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/AdminDesign/js/core/jquery-3.7.1.min.js",
+              "src/assets/AdminDesign/js/core/popper.min.js",
+              "src/assets/AdminDesign/js/core/bootstrap.min.js",
+              "src/assets/AdminDesign/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js",
+              "src/assets/AdminDesign/js/plugin/chart.js/chart.min.js",
+              "src/assets/AdminDesign/js/plugin/jquery.sparkline/jquery.sparkline.min.js",
+              "src/assets/AdminDesign/js/plugin/chart-circle/circles.min.js",
+              "src/assets/AdminDesign/js/plugin/datatables/datatables.min.js",
+              "src/assets/AdminDesign/js/plugin/bootstrap-notify/bootstrap-notify.min.js",
+              "src/assets/AdminDesign/js/plugin/jsvectormap/jsvectormap.min.js",
+              "src/assets/AdminDesign/js/plugin/jsvectormap/world.js",
+              "src/assets/AdminDesign/js/plugin/sweetalert/sweetalert.min.js",
+              "src/assets/AdminDesign/js/kaiadmin.min.js",
+              "src/assets/AdminDesign/js/setting-demo.js",
+              "src/assets/AdminDesign/js/demo.js",
+              "src/assets/AdminDesign/js/plugin/webfont/webfont.min.js"
 
             ]
           },
