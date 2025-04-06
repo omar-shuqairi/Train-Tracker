@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+const user = JSON.parse(localStorage.getItem('user') || '{}');
+const userId = user.UserId;
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +17,7 @@ export class AdminService {
   GetRejectedTestimonials:any=[];
   NumberOfUsers: number = 0;
   NumberOfTrainStation: number = 0;
+  AdminDetails:any=[];
 
   ///////////////////////////////get count of users
   GetCountOfUsers() {
@@ -176,9 +179,26 @@ Updatetrip(body:any){
 
   }
 
+///////////////////////////////////////// get report
+GetReport(body: any) {
+  let params = new HttpParams()
+    .set('type', body.type)
+    .set('year', body.year);
+  if (body.month) {
+    params = params.set('month', body.month);
+  }
+
+  return this.http.get<any[]>("https://localhost:7140/api/Tickets/GetReport", { params });
+}
 
 
-
+GetAdminDetails(){
+  this.http.get("https://localhost:7140/api/Users/getbyId/"+userId).subscribe(resp=>{
+this.AdminDetails=resp;
+  },err=>{
+console.log("err")
+  })
+}
 
 
 

@@ -17,4 +17,30 @@
         <button class="carousel-arrow carousel-arrow-right" >&#8594;</button>
     </div>
 
+    <!-- Testimonilas Form  -->
+
+    <div class="container contact-section" *ngIf="isLoggedIn">
+        <h2 class="text-center mb-5 title-shadow1">Submit Your Testimonial</h2>
+    
+        <!-- Contact Form -->
+        <div class="row mt-5">
+            <div class="col-lg-6 mx-auto">
+                <div class="contact-form">
+                    <form style="margin-bottom: 10px;" [formGroup]="testimonailGroup">
+                     
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Type your message..." formControlName="TestimonialText"  required></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-submit" (click)="submitTestimonial()">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+
     <app-footer></app-footer>

@@ -56,3 +56,14 @@
         }
     }
 
+
+    /* Show the dropdown when hovering over the nav-item */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Show the dropdown */
+}
+
+/* Optional: You may want to adjust the styling of the dropdown menu when it is hovered */
+.nav-item.dropdown .dropdown-menu {
+    display: none; /* Hide by default */
+}
+

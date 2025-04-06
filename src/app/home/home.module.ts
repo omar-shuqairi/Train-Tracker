@@ -12,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MapComponent } from '../components/home-components/map/map.component';
 import { HerosectionComponent } from '../components/home-components/herosection/herosection.component';
 import { SearchTrainStationsComponent } from '../components/home-components/search-train-stations/search-train-stations.component';
+import { TripsComponent } from './trips/trips.component';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -22,7 +23,8 @@ import { SearchTrainStationsComponent } from '../components/home-components/sear
     UserProfileComponent,
     MapComponent,
     HerosectionComponent,
-    SearchTrainStationsComponent
+    SearchTrainStationsComponent,
+    TripsComponent
 
     
   ],

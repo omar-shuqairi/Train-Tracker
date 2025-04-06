@@ -6,6 +6,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { PaymentComponent } from './payment/payment.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TripsComponent } from './trips/trips.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,14 @@ const routes: Routes = [
   {
     path: "UserProfile",
     component:UserProfileComponent
+  },
+  {
+    path: "Trips",
+    component:TripsComponent
+  },
+  {
+    path: "Payment",
+    component:PaymentComponent
   }
 
 

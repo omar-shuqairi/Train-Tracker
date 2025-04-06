@@ -1,0 +1,52 @@
+<app-header></app-header>
+<section class="position-relative vh-100 d-flex align-items-center justify-content-center text-center text-white" style="background: url('../../../assets/images/Viele\ ICE\ Züge_shutterstock_2383642605.c3bccb04.jpg') no-repeat center center/cover;">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+    <div class="position-relative container">
+        <h1 class="display-4 fw-bold">Discover Your Next Adventure</h1>
+        <p class="lead mb-4">Find and book amazing travel experiences.</p>
+    </div>
+</section>
+<div class="table-responsive mt-3">
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Departure Time</th>
+          <th>Ticket Price</th>
+          <th>Trip Description</th>
+          <th>Train Rout Number</th>
+          <th>Start Station Name</th>
+          <th>End Station Name</th>
+          <th>Start City & Area</th>
+          <th>End City & Area</th>
+          <th>Available Seats</th>
+          <th>Booking</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Trips of Home.Trips">
+          <td>{{ Trips.departure_Time | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ Trips.ticket_Price }}</td>
+          <td>{{ Trips.trip_Description }}</td>
+          <td>{{ Trips.route_Number }}</td>
+          <td>{{ Trips.start_Station_Name }}</td>
+          <td>{{ Trips.end_Station_Name }}</td>
+          <td>{{ Trips.start_City }} , {{ Trips.start_Area }}</td>
+          <td>{{ Trips.end_City }} , {{ Trips.end_Area }}</td>
+          <td>{{ Trips.totalSeatCapacity}}</td>
+          <td *ngIf="Trips.totalSeatCapacity > 0">
+            <button class="btn btn-sm btn-success"
+            (click)="saveAndNavigate(Trips)">
+            Book
+          </button>
+          </td>
+
+          <td *ngIf="Trips.totalSeatCapacity === 0">
+            <button class="btn btn-sm btn-danger" disabled>
+            Fully Booked
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<app-footer></app-footer>
