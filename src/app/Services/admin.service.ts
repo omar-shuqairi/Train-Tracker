@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 const user = JSON.parse(localStorage.getItem('user') || '{}');
 const userId = user.UserId;
 @Injectable({
@@ -200,7 +201,54 @@ console.log("err")
   })
 }
 
+///////////////////////////////////////// Manage home page content
 
+GetHomeDetails(): Observable<any> {
+  return this.http.get("https://localhost:7140/api/HomePage");
+}
+///////////////////Update Home Content
+UpdateHomePage(body: any): Observable<any> {
+  return this.http.put("https://localhost:7140/api/HomePage", body);
+  
+}
+///////////////////////////////////////// Manage about page content
+
+GetApoutDetails(): Observable<any> {
+return this.http.get("https://localhost:7140/api/AboutPage");
+}  
+///////////////////Update About Content
+UpdateAboutPage(body: any): Observable<any> {
+return this.http.put("https://localhost:7140/api/AboutPage", body);
+
+}
+
+///////////////////////////////////////// Manage Footer content
+
+GetFooterDetails(): Observable<any> {
+return this.http.get("https://localhost:7140/api/Footer");
+}  
+///////////////////Update Footer Content
+UpdateFooter(body: any): Observable<any> {
+return this.http.put("https://localhost:7140/api/Footer", body);
+
+}
+///////////////////////////////////////// Manage Contact Page content
+
+GetContactPageDetails(): Observable<any> {
+return this.http.get("https://localhost:7140/api/ContactPage");
+}  
+///////////////////Update Contact Page Content
+UpdateContactPageDetails(body: any): Observable<any> {
+return this.http.put("https://localhost:7140/api/ContactPage", body);
+
+}
+
+
+
+//////////////////////upload image
+uploadAttachment(file: FormData): Observable<any> {
+return this.http.post("https://localhost:7140/api/UserProfile/Image", file);
+}
 
 
 
