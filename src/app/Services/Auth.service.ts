@@ -61,7 +61,7 @@ export class AuthService {
 
       RegisterUsers(body:any){
           
-        debugger;
+  
     
         body.ProfileImage = this.display_image;
         this.http.post("https://localhost:7140/api/UserProfile/Register/",body).subscribe(
@@ -86,7 +86,7 @@ export class AuthService {
     
       display_image:any;
       uploadAttachment(file:FormData){
-        debugger
+
         this.http.post("https://localhost:7140/api/UserProfile/Image",file).subscribe(
         (respo:any)=>{
             this.display_image = respo.profileImage;

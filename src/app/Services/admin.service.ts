@@ -10,6 +10,7 @@ export class AdminService {
 
   constructor(private http:HttpClient) { }
   Station:any=[];
+  Trains:any=[];
   Trips:any=[];
   TripsBetweenDates:any=[];
   Users:any=[];
@@ -19,6 +20,7 @@ export class AdminService {
   NumberOfUsers: number = 0;
   NumberOfTrainStation: number = 0;
   AdminDetails:any=[];
+  ContactFormMessages:any=[];
 
   ///////////////////////////////get count of users
   GetCountOfUsers() {
@@ -251,6 +253,25 @@ return this.http.post("https://localhost:7140/api/UserProfile/Image", file);
 }
 
 
+//////get all Contact form Messages
+
+GetAllContactForm(){
+  this.http.get("https://localhost:7140/api/ContactForm").subscribe(resp=>{
+this.ContactFormMessages=resp;
+  },err=>{
+console.log("err")
+  })
+}
+
+
+//////////////////////////////
+GetAllTrains(){
+  this.http.get("https://localhost:7140/api/Trains").subscribe(resp=>{
+this.Trains=resp;
+  },err=>{
+console.log("err")
+  })
+}
 
 
 }//FOR THE CLASS

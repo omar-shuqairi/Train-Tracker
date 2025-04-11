@@ -20,8 +20,12 @@ import { ManageHomePageComponent } from './manage-home-page/manage-home-page.com
 import { ManageAboutPageComponent } from './manage-about-page/manage-about-page.component';
 import { ManageConactPageComponent } from './manage-conact-page/manage-conact-page.component';
 import { ManageFooterComponent } from './manage-footer/manage-footer.component';
-
-
+import { ContactFormTableComponent } from './contact-form-table/contact-form-table.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -41,7 +45,8 @@ import { ManageFooterComponent } from './manage-footer/manage-footer.component';
     ManageHomePageComponent,
     ManageAboutPageComponent,
     ManageConactPageComponent,
-    ManageFooterComponent
+    ManageFooterComponent,
+    ContactFormTableComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +54,12 @@ import { ManageFooterComponent } from './manage-footer/manage-footer.component';
     SharedModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatIconModule
   ]
 })
 export class AdminModule { }

@@ -23,6 +23,8 @@ export class ManageTripComponent {
     endStationId:new FormControl()})
    ngOnInit(): void {
   this.admin.GetAllTrips();
+  this.admin.GetAllStations();
+  this.admin.GetAllTrains();
    }
 
    openDialog(id:number) {
@@ -46,7 +48,7 @@ export class ManageTripComponent {
     this.PData=obj;
 this.dialog.open(this.UpdateDialog)
 
-this.UpdateForm.controls['tripId'].setValue(this.PData.tripId)
+this.UpdateForm.controls['tripId'].setValue(this.PData.trip_ID)
   }
   Update(){
 this.admin.Updatetrip(this.UpdateForm.value);

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/Services/admin.service';
 import { AuthService } from 'src/app/Services/Auth.service';
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-admindashborad',
@@ -64,4 +68,27 @@ export class AdmindashboradComponent implements OnInit {
   logout(): void {
     this.auth.Logout();
   }
+
+  exportToExcel(): void {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.reportData);
+    const workbook: XLSX.WorkBook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
+    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const data: Blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+    FileSaver.saveAs(data, 'Report.xlsx');
+  }
+
+  exportToPDF(): void {
+    const doc = new jsPDF();
+    const headers = [['Number of Users', 'Number of Reservations', 'Profit']];
+    const data = this.reportData.map(item => [item.usersCount, item.reservationsCount, `$${item.profit}`]);
+
+    autoTable(doc, {
+      head: headers,
+      body: data,
+      startY: 20
+    });
+
+    doc.save('Report.pdf');
+  }
+  
 }

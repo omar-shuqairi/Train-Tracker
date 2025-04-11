@@ -78,4 +78,25 @@ export class HomeService {
     
     )
     }
+    submitContactForm(body:any){
+      this.http.post("https://localhost:7140/api/ContactForm",body).subscribe(respo=>{
+        console.log("created");
+ Swal.fire({
+          icon: 'success',
+          title: 'We Recived your Message!',
+          text: 'Thank you.',
+          confirmButtonText: 'OK',
+          allowOutsideClick: false,
+        }).then(() => {
+          window.location.reload();
+        });
+      },
+
+      err=>{
+        console.log(err.message);
+        
+      }
+    
+    )
+    }
 }

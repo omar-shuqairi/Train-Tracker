@@ -1,0 +1,24 @@
+
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+   <div class="main-panel" style="padding: 50px;">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Date submitted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Messages of admin.ContactFormMessages">
+            <td>{{ Messages.fullname }}</td>
+            <td>{{ Messages.email }}</td>
+            <td>{{ Messages.message }}</td>
+            <td>{{ Messages.datesubmitted | date: 'yyyy-MM-dd'  }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>

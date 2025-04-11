@@ -13,35 +13,30 @@
              <th>Departure Time</th>
              <th>Ticket Price</th>
              <th>Trip Description</th>
-             <th>Train ID</th>
-             <th>Start Station ID</th>
-             <th>End Station ID</th>
-             <th>OP</th>
+             <th>Train Rout Number</th>
+             <th>Start Station Name</th>
+             <th>End Station Name</th>
+             <th>Action</th>
 
 
            </tr>
          </thead>
          <tbody>
-           <tr *ngFor="let Trips of admin.Trips">
-             <td>{{ Trips.tripId }}</td>
-             <td>{{ Trips.departureTime | date: 'yyyy-MM-dd' }}</td>
-             <td>{{ Trips.ticketPrice }}</td>
-             <td>{{ Trips.tripDescription }}</td>
-             <td>{{ Trips.trainId }}</td>
-             <td>{{ Trips.startStationId }}</td>
-             <td>{{ Trips.endStationId }}</td>
-
-
-             <td>
-               <button  class="btn btn-sm btn-warning" (click)="openUpdateDialog(Trips)">
-                 Update
-               </button>
-               <button  class="btn btn-sm btn-danger" (click)="openDialog(Trips.tripId)">
-                 Delete
-               </button>
-             </td>
-           </tr>
-         </tbody>
+          <tr *ngFor="let trip of admin.Trips">
+              <td>{{ trip.trip_ID }}</td>
+              <td>{{ trip.departure_Time | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ trip.ticket_Price }}</td>
+              <td>{{ trip.trip_Description }}</td>
+              <td>{{ trip.route_Number }}</td>
+              <td>{{ trip.start_Station_Name }}</td>
+              <td>{{ trip.end_Station_Name }}</td>
+              <td>
+                  <button class="btn btn-sm btn-warning" (click)="openUpdateDialog(trip)">Update</button>
+                  <button class="btn btn-sm btn-danger" (click)="openDialog(trip.trip_ID)">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+      
        </table>
      </div>
      
@@ -61,48 +56,64 @@
 
 
    <ng-template #CallUpdateDialog>
-       <h2 mat-dialog-title>Update Station</h2>
-       <mat-dialog-content class="mat-typography">
-           <form class="example-form" [formGroup]="UpdateForm">
-               <mat-form-field class="example-full-width">
-                 <mat-label>departure Time</mat-label>
-                 <input matInput type="date" formControlName="departureTime" [(ngModel)]="PData.departureTime">
-               </mat-form-field>
-             
-               <mat-form-field class="example-full-width">
-                 <mat-label>ticket Price</mat-label>
-                 <input matInput type="number" formControlName="ticketPrice" [(ngModel)]="PData.ticketPrice">
-               </mat-form-field>
-             
-               <mat-form-field class="example-full-width">
-                 <mat-label>tripDescription</mat-label>
-                 <input matInput type="text" formControlName="tripDescription"  [(ngModel)]="PData.tripDescription">
-               </mat-form-field>
-
-               <mat-form-field class="example-full-width">
-                <mat-label>trainId</mat-label>
-                <input matInput type="number" formControlName="trainId"  [(ngModel)]="PData.trainId">
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                <mat-label>start Station Id</mat-label>
-                <input matInput type="number" formControlName="startStationId"  [(ngModel)]="PData.startStationId">
-              </mat-form-field>
-
-
-              <mat-form-field class="example-full-width">
-                <mat-label>end Station Id</mat-label>
-                <input matInput type="number" formControlName="endStationId"  [(ngModel)]="PData.endStationId">
-              </mat-form-field>
-             </form>
-             
-       </mat-dialog-content>
-       <mat-dialog-actions align="end">
-         <button mat-button mat-dialog-close>Cancel</button>
-         <button mat-button (click)="Update()" [mat-dialog-close]="true" cdkFocusInitial>Update</button>
-       </mat-dialog-actions>
-       
-   </ng-template> 
+    <h2 mat-dialog-title>Update Station</h2>
+  
+    <mat-dialog-content class="mat-typography">
+      <form class="update-form" [formGroup]="UpdateForm">
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Departure Time</mat-label>
+            <input matInput type="date" formControlName="departureTime" [(ngModel)]="PData.departure_Time">
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Ticket Price</mat-label>
+            <input matInput type="number" formControlName="ticketPrice" [(ngModel)]="PData.ticket_Price">
+          </mat-form-field>
+        </div>
+  
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Trip Description</mat-label>
+          <input matInput type="text" formControlName="tripDescription" [(ngModel)]="PData.trip_Description">
+        </mat-form-field>
+  
+        <div class="form-row test" >
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label >Train Route</mat-label>
+            <mat-select formControlName="trainId" [(ngModel)]="PData.train_ID">
+              <mat-option *ngFor="let train of admin.Trains" [value]="train.trainId">
+                {{ train.routeNumber }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Start Station</mat-label>
+            <mat-select formControlName="startStationId" [(ngModel)]="PData.start_Station_ID">
+              <mat-option *ngFor="let station of admin.Station" [value]="station.stationId">
+                {{ station.stationName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>End Station</mat-label>
+          <mat-select formControlName="endStationId" [(ngModel)]="PData.end_Station_ID">
+            <mat-option *ngFor="let station of admin.Station" [value]="station.stationId">
+              {{ station.stationName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+  
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" (click)="Update()" [mat-dialog-close]="true" cdkFocusInitial>Update</button>
+    </mat-dialog-actions>
+  </ng-template>
+   
 
 
 
