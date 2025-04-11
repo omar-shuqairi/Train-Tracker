@@ -1,53 +1,82 @@
-body{
-    overflow-x: hidden;
-}
 .about-section {
-    padding: 50px 0;
-}
-.about-box {
-    background: #f8f9fa;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
-.img2{
-
-    margin-top: 250px;
-    margin-left: 10px;
-
-}
-
-.img1{
-    margin-top: 250px;
-    margin-right: 10px;
-}
-
-@media (max-width: 768px) {
-    .img1, .img2 {
-        margin-top: 0; /* Reset margin for smaller screens /
-        margin-left: 0;
-        margin-right: 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  }
+  
+  .title-gradient {
+    background: linear-gradient(45deg, #0d6efd, #20c997);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .divider {
+    width: 80px;
+    height: 4px;
+    border-radius: 2px;
+  }
+  
+  .about-card {
+    transition: all 0.3s ease;
+    background: white;
+    border: none;
+  }
+  
+  .about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+  }
+  
+  .icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  
+  .bg-primary-light {
+    background-color: rgba(13, 110, 253, 0.1);
+  }
+  
+  .zoom-effect {
+    transition: transform 0.5s ease;
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .about-card:hover .zoom-effect {
+    transform: scale(1.05);
+  }
+  
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+  
+  /* Animation on page load */
+  .about-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+  }
+  
+  .about-card:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  
+  .about-card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  
+  .about-card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-
-    .about-box {
-        margin-bottom: 20px; / Add spacing between sections on small screens /
-    }
-
-    .about-box img {
-        height: auto; / Make images scale dynamically /
-        max-height: 200px; / Set a reasonable height */
-    }
-}
-
-h4 {
-     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.tilte-shadow{
-    text-align: center;
-    padding: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 10%;
-}
+  }
