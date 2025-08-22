@@ -1,7 +1,14 @@
-<section class="hero text-center text-white d-flex align-items-center">
-    <div class="container">
-        <h1 class="hero-title">Book Your Next Train Ride!</h1>
-        <p class="hero-subtitle">Fast, Secure, and Reliable</p>
-        <button class="btn btn-lg btn-warning hero-btn">Book Now</button>
+<section class="hero text-white d-flex align-items-center justify-content-center">
+    <img 
+      src="../../../assets/images/{{HomePageInfo.bgHero}}"
+      alt="Hero Background" 
+      class="hero-img"
+    />
+    
+    <div class="container text-center">
+      <h1 class="hero-title">{{ HomePageInfo.paragraph1 }}</h1>
+      <p class="hero-subtitle">{{ HomePageInfo.paragraph2 }}</p>
+      <button class="btn btn-lg btn-warning hero-btn" routerLink="/home/Trips">Book Now</button>
     </div>
-</section>
+  </section>
+ 

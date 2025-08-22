@@ -1,0 +1,30 @@
+
+        .bg-gray { background-color: #f8f9fa; padding: 50px 0; }
+        .bg-4 { background-color: #34495e; color: white; }
+        .btn-main { background-color: #e74c3c; border: none; padding: 10px 20px; }
+        .btn-main:hover { background-color: #c0392b; }
+        .ticket-card { background-color: #34495e; color: white; padding: 20px; border-radius: 10px; }
+        .ticket-card h4, .ticket-card h3 { margin-bottom: 15px; }
+        .ticket-card .info { font-size: 1.1rem; margin-bottom: 10px; }
+        .ticket-card .info span { font-weight: bold; }
+        .form-control { border-radius: 8px; padding: 12px; font-size: 1.1rem; border: 1px solid #ced4da; }
+        .form-control:focus {border-color: #1e1d1c; box-shadow: 0 0 5px rgba(99, 98, 98, 0.75);}
+        .form-group label { font-weight: bold; }
+        .btn-outline-custom {
+            background-color: transparent;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-transform: uppercase;
+        }
+        .btn-outline-custom:hover {
+            background-color: #fff;
+            color: #343a40;
+            border-color: #343a40;
+        }
+        .btn-outline-custom:focus {
+            background-color: #fff;
+            color: #343a40;
+            border-color: #343a40;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }

@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+const user = JSON.parse(localStorage.getItem('user') || '{}');
+const userId = user.UserId;
 @Injectable({
   providedIn: 'root'
 })
@@ -7,6 +10,7 @@ export class AdminService {
 
   constructor(private http:HttpClient) { }
   Station:any=[];
+  Trains:any=[];
   Trips:any=[];
   TripsBetweenDates:any=[];
   Users:any=[];
@@ -15,6 +19,8 @@ export class AdminService {
   GetRejectedTestimonials:any=[];
   NumberOfUsers: number = 0;
   NumberOfTrainStation: number = 0;
+  AdminDetails:any=[];
+  ContactFormMessages:any=[];
 
   ///////////////////////////////get count of users
   GetCountOfUsers() {
@@ -176,13 +182,96 @@ Updatetrip(body:any){
 
   }
 
+///////////////////////////////////////// get report
+GetReport(body: any) {
+  let params = new HttpParams()
+    .set('type', body.type)
+    .set('year', body.year);
+  if (body.month) {
+    params = params.set('month', body.month);
+  }
+
+  return this.http.get<any[]>("https://localhost:7140/api/Tickets/GetReport", { params });
+}
+
+
+GetAdminDetails(){
+  this.http.get("https://localhost:7140/api/Users/getbyId/"+userId).subscribe(resp=>{
+this.AdminDetails=resp;
+  },err=>{
+console.log("err")
+  })
+}
+
+///////////////////////////////////////// Manage home page content
+
+GetHomeDetails(): Observable<any> {
+  return this.http.get("https://localhost:7140/api/HomePage");
+}
+///////////////////Update Home Content
+UpdateHomePage(body: any): Observable<any> {
+  return this.http.put("https://localhost:7140/api/HomePage", body);
+  
+}
+///////////////////////////////////////// Manage about page content
+
+GetApoutDetails(): Observable<any> {
+return this.http.get("https://localhost:7140/api/AboutPage");
+}  
+///////////////////Update About Content
+UpdateAboutPage(body: any): Observable<any> {
+return this.http.put("https://localhost:7140/api/AboutPage", body);
+
+}
+
+///////////////////////////////////////// Manage Footer content
+
+GetFooterDetails(): Observable<any> {
+return this.http.get("https://localhost:7140/api/Footer");
+}  
+///////////////////Update Footer Content
+UpdateFooter(body: any): Observable<any> {
+return this.http.put("https://localhost:7140/api/Footer", body);
+
+}
+///////////////////////////////////////// Manage Contact Page content
+
+GetContactPageDetails(): Observable<any> {
+return this.http.get("https://localhost:7140/api/ContactPage");
+}  
+///////////////////Update Contact Page Content
+UpdateContactPageDetails(body: any): Observable<any> {
+return this.http.put("https://localhost:7140/api/ContactPage", body);
+
+}
 
 
 
+//////////////////////upload image
+uploadAttachment(file: FormData): Observable<any> {
+return this.http.post("https://localhost:7140/api/UserProfile/Image", file);
+}
 
 
+//////get all Contact form Messages
+
+GetAllContactForm(){
+  this.http.get("https://localhost:7140/api/ContactForm").subscribe(resp=>{
+this.ContactFormMessages=resp;
+  },err=>{
+console.log("err")
+  })
+}
 
 
+//////////////////////////////
+GetAllTrains(){
+  this.http.get("https://localhost:7140/api/Trains").subscribe(resp=>{
+this.Trains=resp;
+  },err=>{
+console.log("err")
+  })
+}
 
 
 }//FOR THE CLASS

@@ -12,7 +12,7 @@ export class LoginComponent {
 
 constructor(private auth:AuthService,public router:Router){}
   email=new FormControl('',[Validators.required,Validators.email]);
-  password=new FormControl('',[Validators.required,Validators.minLength(8)]);
+  password=new FormControl('',[Validators.required,Validators.minLength(9)]);
 
 login(){
 this.auth.Login(this.email,this.password);

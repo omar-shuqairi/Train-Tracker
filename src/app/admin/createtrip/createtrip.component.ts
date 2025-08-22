@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/Services/admin.service';
 
@@ -7,8 +7,12 @@ import { AdminService } from 'src/app/Services/admin.service';
   templateUrl: './createtrip.component.html',
   styleUrls: ['./createtrip.component.css']
 })
-export class CreatetripComponent {
-  constructor(private admin:AdminService){}
+export class CreatetripComponent  implements OnInit {
+  constructor(public admin:AdminService){}
+  ngOnInit(){
+    this.admin.GetAllStations();
+    this.admin.GetAllTrains();
+   }
   createForm:FormGroup = new FormGroup({
     departureTime:new FormControl('',[Validators.required]),
     ticketPrice:new FormControl('',[Validators.required]),

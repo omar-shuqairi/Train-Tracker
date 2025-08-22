@@ -3,31 +3,35 @@
 <div class="container contact-section">
     <h2 class="text-center mb-5 title-shadow">Contact Us</h2>
 
-    <!-- Contact Form -->
-    <div class="row mt-5">
-        <div class="col-lg-6 mx-auto">
-            <div class="contact-form">
-                <h4 class="text-center mb-4">Send Us a Message</h4>
-                <form>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Your Message</label>
-                        <textarea class="form-control" id="message" rows="4" placeholder="Type your message..." required></textarea>
-                    </div>
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-submit">Send Message</button>
-                    </div>
-                </form>
-            </div>
+<!-- Contact Form -->
+<div class="row mt-5">
+    <div class="col-lg-6 mx-auto">
+        <div class="contact-form">
+            <h4 class="text-center mb-4">Send Us a Message</h4>
+            <form [formGroup]="ContactFormGroup" (ngSubmit)="submitContactForm()">
+                <div class="mb-3">
+                    <label for="fullname" class="form-label">Full Name</label>
+                    <!-- Use formControlName to bind the input to the FormControl in the TypeScript -->
+                    <input type="text" class="form-control" id="fullname" formControlName="Fullname" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <!-- Use formControlName to bind the input to the FormControl in the TypeScript -->
+                    <input type="email" class="form-control" id="email" formControlName="Email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Your Message</label>
+                    <!-- Use formControlName to bind the textarea to the FormControl in the TypeScript -->
+                    <textarea class="form-control" id="message" rows="4" formControlName="Message" placeholder="Type your message..." required></textarea>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-submit" [disabled]="ContactFormGroup.invalid">Send Message</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
+
 
 </div>
 

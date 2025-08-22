@@ -25,6 +25,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     HeaderComponent,
@@ -32,6 +34,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
     FormsModule,
     ReactiveFormsModule
   ]

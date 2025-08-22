@@ -1,1 +1,63 @@
-<p>admin-profile works!</p>
+
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+    <div class="main-panel" style="padding: 50px;">
+
+
+        <div class="container rounded bg-white mt-5 mb-5 ">
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <img class=" mt-5" width="150px" src="../../../assets/images/{{user.profileImage}}">
+                        <input type="file" #file  formControlName="ProfileImage" class="form-control mt-5" (change)="UploadImage(file.files)">
+                </div>
+                </div>
+                <div class="col-md-8 ">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Profile Settings</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">First Name</label><input  [(ngModel)]="user.firstName" type="text" class="form-control" placeholder="first name" value=""></div>
+                            <div class="col-md-6"><label class="labels">Last Name</label><input [(ngModel)]="user.lastName" type="text" class="form-control" value="" placeholder="Last Name"></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Email</label><input type="email" [(ngModel)]="user2.email" class="form-control" placeholder="enter your Email " value=""></div>
+                            <div class="col-md-12"><label class="labels">Password</label><input type="text" [(ngModel)]="user2.password" class="form-control" placeholder="enter Your Password" value=""></div>
+                            <div class="col-md-12">
+                                <label  class="labels">Gender</label>
+                                <select [(ngModel)]="user.gender" class="form-control">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>  
+                            <div class="col-md-12">
+                                <label  class="labels">City</label>
+                                <select [(ngModel)]="user.city" class="form-control">
+                                    <option value="Amman">Amman</option>
+                                    <option value="Zarqa">Zarqa</option>
+                                    <option value="Al-Balqa">Al-Balqa</option>
+                                    <option value="Aqaba">Aqaba</option>
+                                    <option value="Maan">Maan</option>
+                                    <option value="Mafraq">Mafraq</option>
+                                    <option value="Irbid">Irbid</option>
+                                    <option value="Ajloun">Ajloun</option>
+                                    <option value="Jerash">Jerash</option>
+                                    <option value="Tafila">Tafila</option>
+                                    <option value="Karak">Karak</option>
+                                    <option value="Madaba">Madaba</option>
+                                </select>
+                            </div>                        
+                            <div class="col-md-12"><label class="labels">Date Of Barth</label><input [(ngModel)]="user.dateOfBirth" type="date" class="form-control" placeholder="" value=""></div>
+                        </div>
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" (click)="updateUser()" type="button">Save Profile</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+

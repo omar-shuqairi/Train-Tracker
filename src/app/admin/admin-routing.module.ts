@@ -9,6 +9,11 @@ import { RejectedTestimonialsComponent } from './rejected-testimonials/rejected-
 import { ManageTripComponent } from './manage-trip/manage-trip.component';
 import { SearchTripComponent } from './search-trip/search-trip.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { ManageHomePageComponent } from './manage-home-page/manage-home-page.component';
+import { ManageAboutPageComponent } from './manage-about-page/manage-about-page.component';
+import { ManageConactPageComponent } from './manage-conact-page/manage-conact-page.component';
+import { ManageFooterComponent } from './manage-footer/manage-footer.component';
+import { ContactFormTableComponent } from './contact-form-table/contact-form-table.component';
 const routes: Routes = [
   {
     path:'Dashborad',
@@ -39,6 +44,21 @@ const routes: Routes = [
   },
   { path:'AdminProfile',
     component: AdminProfileComponent
+  },
+  { path:'ManageHomePage',
+    component: ManageHomePageComponent
+  },
+  { path:'ManageAboutPage',
+    component: ManageAboutPageComponent
+  },
+  { path:'ManageContactPage',
+    component: ManageConactPageComponent
+  },
+  { path:'ManageFooter',
+    component: ManageFooterComponent
+  },
+  { path:'ContactFormTable',
+    component: ContactFormTableComponent
   }
 ];
 

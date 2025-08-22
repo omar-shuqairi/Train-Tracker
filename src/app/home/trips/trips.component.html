@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<section class="position-relative vh-100 d-flex align-items-center justify-content-center text-center text-white" style="background: url('../../../assets/images/Viele ICE Züge_shutterstock_2383642605.c3bccb04.jpg') no-repeat center center/cover;">
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+  <div class="position-relative container">
+    <h1 class="display-4 fw-bold animated fadeIn text-light">Discover Your Next Adventure</h1>
+    <p class="lead mb-4 animated fadeIn delay-1s text-light">Find and book amazing travel experiences.</p>
+  </div>
+</section>
+<div class="container mt-5">
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4" *ngFor="let Trips of Home.Trips">
+      <div class="card shadow-lg rounded-3 border-primary trip-card">
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">Train Route #{{ Trips.route_Number }}</h5>
+          <p class="card-text mb-2"><strong>Departure:</strong> {{ Trips.departure_Time | date: 'yyyy-MM-dd' }}</p>
+          <p class="card-text"><strong>Price:</strong> ${{ Trips.ticket_Price }}</p>
+          <p class="card-text"><strong>Description:</strong> {{ Trips.trip_Description }}</p>
+          <hr>
+          <p class="card-text mb-1"><strong>From:</strong> {{ Trips.start_Station_Name }} ({{ Trips.start_City }}, {{ Trips.start_Area }})</p>
+          <p class="card-text"><strong>To:</strong> {{ Trips.end_Station_Name }} ({{ Trips.end_City }}, {{ Trips.end_Area }})</p>
+          <p class="card-text"><strong>Available Seats:</strong> {{ Trips.totalSeatCapacity }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-top-0 text-center">
+          <button 
+            *ngIf="Trips.totalSeatCapacity > 0"
+            class="btn btn-success w-100 animated fadeInUp"
+            (click)="saveAndNavigate(Trips)">
+            Book Now
+          </button>
+          <button 
+            *ngIf="Trips.totalSeatCapacity === 0"
+            class="btn btn-danger w-100"
+            disabled>
+            Fully Booked
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

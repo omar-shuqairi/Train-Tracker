@@ -4,12 +4,14 @@ import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeModule } from './home/home.module';
+import { HomePageComponent } from './home/home-page/home-page.component';
+import { athurizationGuard } from './athurization.guard';
 
 const routes: Routes = [
 
   {
     path: "",
-    component:LoginComponent
+    component:HomePageComponent
   },
   {
     path:"sign",
@@ -23,7 +25,8 @@ const routes: Routes = [
   },
   {
     path:'admin',
-    loadChildren:()=>AdminModule
+    loadChildren:()=>AdminModule,
+    canActivate:[athurizationGuard]
   }
 ];
 

@@ -1,21 +1,83 @@
 <app-header></app-header>
-<h2 class="text-center mb-5 title-shadow">Our Clients says ...</h2>
+
     <!-- Testimonial Section -->
-    <div class="testimonial-container">
-        <button class="carousel-arrow carousel-arrow-left" onclick="moveTestimonials('left')">&#8592;</button>
-        <div class="testimonial-wrapper">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-card" *ngFor="let ApprovedTestimonialsForHome of Home.ApprovedTestimonialsForHome">
-                <img src="../../../assets/images/{{ApprovedTestimonialsForHome.profileImage}}" class="img-thumbnail" style="width: 50px; height: 50px;">
-                <div>
-                    <p>{{ ApprovedTestimonialsForHome.testimonialText}}</p>
-                    <p class="name">{{ ApprovedTestimonialsForHome.firstName}}</p>
-                    <p class="date">{{ ApprovedTestimonialsForHome.lastName}}</p>
+<!-- Testimonial Section -->
+<div class="testimonial-section py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">What Our Clients Say</h2>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- Testimonial Items -->
+          <div class="carousel-item" *ngFor="let testimonial of Home.ApprovedTestimonialsForHome; let i = index" [class.active]="i === 0">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="testimonial-card card border-0 shadow-sm p-4">
+                  <div class="card-body text-center">
+                    <div class="testimonial-img mb-4">
+                      <img src="../../../assets/images/{{testimonial.profileImage}}" class="rounded-circle img-thumbnail" width="80" height="80" alt="{{testimonial.firstName}}">
+                    </div>
+                    <div class="testimonial-content">
+                      <p class="lead fst-italic mb-4 position-relative">
+                        <i class="fas fa-quote-left text-muted opacity-25 fa-2x position-absolute start-0 top-0"></i>
+                        {{testimonial.testimonialText}}
+                        <i class="fas fa-quote-right text-muted opacity-25 fa-2x position-absolute end-0 bottom-0"></i>
+                      </p>
+                      <h5 class="mb-1 text-primary">{{testimonial.firstName}} {{testimonial.lastName}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        
+        <!-- Indicators -->
+        <div class="carousel-indicators position-static mt-4">
+          <button type="button" *ngFor="let testimonial of Home.ApprovedTestimonialsForHome; let i = index" 
+                  data-bs-target="#testimonialCarousel" [attr.data-bs-slide-to]="i" 
+                  [class.active]="i === 0" class="rounded-circle bg-secondary mx-1" 
+                  style="width: 12px; height: 12px;"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <!-- Testimonilas Form  -->
+
+    <div class="container contact-section" *ngIf="isLoggedIn">
+        <h2 class="text-center mb-5 title-shadow1">Submit Your Testimonial</h2>
+    
+        <!-- Contact Form -->
+        <div class="row mt-5">
+            <div class="col-lg-6 mx-auto">
+                <div class="contact-form">
+                    <form style="margin-bottom: 10px;" [formGroup]="testimonailGroup">
+                     
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Type your message..." formControlName="TestimonialText"  required></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-submit" (click)="submitTestimonial()">Send</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <button class="carousel-arrow carousel-arrow-right" >&#8594;</button>
+    
     </div>
+    
 
     <!-- Testimonilas Form  -->
 

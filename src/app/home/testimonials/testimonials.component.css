@@ -1,97 +1,58 @@
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: #f4f4f4;
-}
-
-/* Testimonial Section */
-.testimonial-container {
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    padding: 50px 0;
-    margin-top: 100px;
-
-}
-
-.testimonial-wrapper {
-    display: flex;
-    animation: scrollTestimonials 20s linear infinite;
-}
-
-.testimonial-card {
+.testimonial-section {
     background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-    transition: transform 0.5s ease;
-}
-
-.testimonial-card img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.testimonial-card p {
-    font-size: 16px;
-    color: #555;
-}
-
-.testimonial-card .name {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.testimonial-card .date {
-    font-size: 12px;
-    color: #777;
-}
-
-/* Arrows */
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    color: #007bff;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.carousel-arrow-left {
-    left: 10px;
-}
-
-.carousel-arrow-right {
-    right: 10px;
-}
-
-/* Continuous Scroll Animation */
-@keyframes scrollTestimonials {
-    0% {
-        transform: translateX(0);
+  }
+  
+  .testimonial-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    background-color: white;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  }
+  
+  .carousel-item {
+    padding: 20px 0;
+  }
+  
+  .carousel-control-prev, .carousel-control-next {
+    width: auto;
+  }
+  
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    background-size: 1.5rem;
+  }
+  
+  .carousel-indicators button {
+    transition: all 0.3s ease;
+    opacity: 0.5;
+  }
+  
+  .carousel-indicators button.active {
+    opacity: 1;
+    background-color: #0d6efd !important;
+    transform: scale(1.2);
+  }
+  
+  .rating {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  
+  /* Animation for carousel items */
+  .carousel-item.active .testimonial-card {
+    animation: fadeInUp 0.6s ease;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
-
-    100% {
-        transform: translateX(-100%);
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-
-.title-shadow{
-    margin-top: 30px;
-    text-align: center;
-    padding: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 10%;
-}
+  }

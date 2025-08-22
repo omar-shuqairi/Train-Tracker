@@ -1,0 +1,123 @@
+/* Container for card elements */
+.container {
+    padding: 30px 0;
+  }
+  
+  /* Style for the card */
+  .trip-card {
+    background: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hover effect to scale the card */
+  .trip-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card body styling */
+  .card-body {
+    padding: 20px;
+    background: #f7f9fc;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .card-title {
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    margin-bottom: 10px;
+  }
+  
+  .card-text strong {
+    color: #007bff;
+  }
+  
+  hr {
+    border-color: #e2e8f0;
+    margin: 10px 0;
+  }
+  
+  /* Card footer styling */
+  .card-footer {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    padding: 15px 20px;
+    text-align: center;
+  }
+  
+  /* Button styles */
+  .btn {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-success {
+    background-color: #007bff;
+    border: none !important;
+  }
+  
+  .btn-success:hover {
+    background-color: #00ff2a !important;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  .btn-danger:disabled {
+    background-color: #f8d7da;
+    cursor: not-allowed;
+  }
+  
+  /* Animations */
+  .animated {
+    animation-duration: 1.2s;
+    animation-fill-mode: both;
+  }
+  
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .card-body {
+      padding: 15px;
+    }
+    .card-footer {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .btn {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
+  
