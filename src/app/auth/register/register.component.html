@@ -43,8 +43,21 @@
 
         <div class="form-group">
             <label for="city">city</label>
-            <input type="text" class="form-control" formControlName="City"  id="city" placeholder="Enter city">
-            <span style="color: red;" *ngIf="registerForm.controls['City'].hasError('required')">city is required</span>
+            <select  formControlName="City" class="form-control">
+                <option value="Amman">Amman</option>
+                <option value="Zarqa">Zarqa</option>
+                <option value="Al-Balqa">Al-Balqa</option>
+                <option value="Aqaba">Aqaba</option>
+                <option value="Maan">Maan</option>
+                <option value="Mafraq">Mafraq</option>
+                <option value="Irbid">Irbid</option>
+                <option value="Ajloun">Ajloun</option>
+                <option value="Jerash">Jerash</option>
+                <option value="Tafila">Tafila</option>
+                <option value="Karak">Karak</option>
+                <option value="Madaba">Madaba</option>
+            </select>          
+              <span style="color: red;"  *ngIf="registerForm.controls['City'].hasError('required')">city is required</span>
         </div>
        
         

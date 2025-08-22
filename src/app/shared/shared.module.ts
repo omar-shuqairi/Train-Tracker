@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     HeaderComponent,
@@ -30,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

@@ -34,5 +34,24 @@ export class HomeService {
     }
 
 
+    sumitTestimonials(body:any){//message+userid
+
+      // debugger
+      this.http.post("https://localhost:7140/api/Testimonials/PostTestimonialFromUsers",body).subscribe(respo=>{
+        console.log("created");
+
+        window.location.reload();
+        
+      },
+
+      err=>{
+        console.log(err.message);
+        
+      }
+    
+    )
+    }
+
+
 
 }

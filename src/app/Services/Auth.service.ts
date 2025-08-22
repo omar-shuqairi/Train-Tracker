@@ -28,12 +28,21 @@ export class AuthService {
     const requestOption={
        headers:new HttpHeaders(headerDirc) 
     }
+        debugger
 
     this.http.post("https://localhost:7140/api/JWT",body,requestOption).subscribe((resp:any)=>{
+              debugger
+
         console.log('Response:', resp);
         localStorage.setItem('token',resp.toString());
         const user:any = jwtDecode(resp.toString());
         localStorage.setItem('user',JSON.stringify(user));
+        if (user && user.UserId) {
+          localStorage.setItem('userId', user.UserId.toString());
+          console.log("UserID Stored:", localStorage.getItem('userId'));
+        }else{
+          console.log("error");
+        }
         if(user.RoleId=='1')
         {
             this.toastr.success('Welcome on Admin Dashboard');
